@@ -38,6 +38,10 @@ def register_handle(request):
     if allow != 'on':
         return render(request, 'register.html', {'errmsg': '请同意协议'})
 
+    # 校验用户名是否重复
+    userList = User.objects.filter(username=username)
+    if userList:
+        return render(request, 'register.html', {'errmsg': '用户名已存在'})
     # 业务处理：用户注册
     user = User.objects.create_user(username=username, email=email, password=password)
 
