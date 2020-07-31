@@ -135,3 +135,31 @@ TINYMCE_EFAULT_ONFIG = {
     'width': 600,
     'height': 400,
 }
+
+# 发送邮件配置
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# 服务器名称
+EMAIL_HOST = 'smtp.163.com'
+# 服务端口
+EMAIL_PORT = 25
+# 邮箱
+EMAIL_HOST_USER = 'ngz0324@163.com'
+# 在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'ngz19950324'
+# 收件人看到的发件人
+EMAIL_FROM = '天天生鲜<ngz0324@163.com>'
+
+# Django的缓存配置
+CACHES = {
+    "default": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/9",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    }
+}
+
+# 配置Session存储
+SESSION_ENGINE = "django.contrib.sessions.backends.cache"
+SESSION_CACHE_ALIAS = "default"
